@@ -1,0 +1,18 @@
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\bin\Debug\net5.0\PreProjeto.exe
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\bin\Debug\net5.0\PreProjeto.deps.json
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\bin\Debug\net5.0\PreProjeto.runtimeconfig.json
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\bin\Debug\net5.0\PreProjeto.runtimeconfig.dev.json
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\bin\Debug\net5.0\PreProjeto.dll
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\bin\Debug\net5.0\ref\PreProjeto.dll
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\bin\Debug\net5.0\PreProjeto.pdb
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\obj\Debug\net5.0\PreProjeto.csproj.AssemblyReference.cache
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\obj\Debug\net5.0\PreProjeto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\obj\Debug\net5.0\PreProjeto.AssemblyInfoInputs.cache
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\obj\Debug\net5.0\PreProjeto.AssemblyInfo.cs
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\obj\Debug\net5.0\PreProjeto.csproj.CoreCompileInputs.cache
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\obj\Debug\net5.0\PreProjeto.dll
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\obj\Debug\net5.0\ref\PreProjeto.dll
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\obj\Debug\net5.0\PreProjeto.pdb
+C:\Users\jeiel.alves\Desktop\Univale\Prog II\Semana 2\PreProjeto\PreProjeto\obj\Debug\net5.0\PreProjeto.genruntimeconfig.cache
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\obj\Debug\net5.0\PreProjeto.dll
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\obj\Debug\net5.0\PreProjeto.pdb

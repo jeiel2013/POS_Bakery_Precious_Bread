@@ -1,0 +1,14 @@
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\obj\Debug\net7.0\PreProjeto.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\obj\Debug\net7.0\PreProjeto.AssemblyInfoInputs.cache
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\obj\Debug\net7.0\PreProjeto.AssemblyInfo.cs
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\obj\Debug\net7.0\PreProjeto.csproj.CoreCompileInputs.cache
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\bin\Debug\net7.0\PreProjeto.exe
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\bin\Debug\net7.0\PreProjeto.deps.json
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\bin\Debug\net7.0\PreProjeto.runtimeconfig.json
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\bin\Debug\net7.0\PreProjeto.dll
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\bin\Debug\net7.0\PreProjeto.pdb
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\obj\Debug\net7.0\PreProjeto.dll
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\obj\Debug\net7.0\refint\PreProjeto.dll
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\obj\Debug\net7.0\PreProjeto.pdb
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\obj\Debug\net7.0\PreProjeto.genruntimeconfig.cache
+C:\Users\jeiell\Desktop\PreProjeto\PreProjeto\PreProjeto\obj\Debug\net7.0\ref\PreProjeto.dll
