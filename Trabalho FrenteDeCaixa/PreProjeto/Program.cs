@@ -1,9 +1,12 @@
 ﻿using System;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 
 namespace PadariaPaoPrecioso
 {
+    [Serializable]
     struct dadosProduto
     {
         public string descricaoProduto;
@@ -129,6 +132,73 @@ namespace PadariaPaoPrecioso
             Console.WriteLine("********************************************");
             Console.WriteLine("************ REGRISTRAR VENDA **************");
             Console.WriteLine("--------------------------------------------");
+        }
+
+        static void LerDadosDoArquivo(dadosProduto[] produtos, ref int n)
+        {
+            IFormatter formatter = new BinaryFormatter(); //Permite operação binária no arquivo
+            if (File.Exists("Produtos.bin"))
+            {
+                Stream rd = new FileStream("Produtos.bin", FileMode.Open, FileAccess.Read);
+                //abre o arquivo somente leitura
+                dadosProduto produto;
+                try ///permite interceptar e tratar as exceções (erros)
+                {
+                    while (true)
+                    {
+                        produto = (dadosProduto)formatter.Deserialize(rd); //Obtem os dados do arquivo no formato prod
+                        produtos[n] = produto;
+                        n++;
+                    }
+                }
+                catch (Exception err) //Se houver erro, ele é passado para err
+                {
+                    Console.Write("Dados transferidos para o vetor!");
+                }
+                rd.Close();
+            }
+        }
+
+        static void GravarDadosNoArquivo(dadosProduto[] produtos, int n)
+        {
+            IFormatter formatter = new BinaryFormatter(); //Permite operação binária
+            Stream wr = new FileStream("Produtos.bin", FileMode.Create, FileAccess.Write);
+            //Cria o arquivo e abre um fluxo
+            for (int i = 0; i < n; i++)
+            {
+                formatter.Serialize(wr, produtos[i]); //grava os elementos do vetor p serializados
+                                               // no arquivo wr
+            }
+            wr.Close();
+        }
+
+        static int busca_bin(dadosProduto[] L, string chave, int tam)
+        {
+            int inf = 0, sup = tam, pos = -1, meio;
+            while (inf <= sup)
+            {
+                meio = (inf + sup) / 2;
+                if (L[meio].descricaoProduto == chave)
+                {
+                    pos = meio;
+                    inf = sup + 1;
+                }
+                else if (L[meio].descricaoProduto.CompareTo(chave) < 0)
+                    inf = meio + 1;
+                else sup = meio - 1;
+            }
+            return pos;
+        }
+
+        static void relatorio(dadosProduto[] p, int q)
+        {
+            StreamWriter relprod = new StreamWriter("Produtos.txt", false);
+            relprod.WriteLine("Relatório de Produtos");
+            for (int i = 0; i < q; i++)
+            {
+                relprod.WriteLine($"Nome: {p[i].descricaoProduto}| Valor: {p[i].valorUnitario} | Estoque: {p[i].qtdEstoque} | Fabricação: {p[i].dataFabricacao} | Validade: {p[i].prazoValidade}");
+            }
+            relprod.Close();
         }
     }
 }

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\jeiell\\Desktop\\PreProjeto\\PreProjeto\\PreProjeto\\PreProjeto.csproj": {}
+    "C:\\Users\\jeiell\\Desktop\\Trabalho Final FrenteDeCaixa\\Trabalho FrenteDeCaixa\\PreProjeto\\PreProjeto.csproj": {}
   },
   "projects": {
-    "C:\\Users\\jeiell\\Desktop\\PreProjeto\\PreProjeto\\PreProjeto\\PreProjeto.csproj": {
+    "C:\\Users\\jeiell\\Desktop\\Trabalho Final FrenteDeCaixa\\Trabalho FrenteDeCaixa\\PreProjeto\\PreProjeto.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\jeiell\\Desktop\\PreProjeto\\PreProjeto\\PreProjeto\\PreProjeto.csproj",
+        "projectUniqueName": "C:\\Users\\jeiell\\Desktop\\Trabalho Final FrenteDeCaixa\\Trabalho FrenteDeCaixa\\PreProjeto\\PreProjeto.csproj",
         "projectName": "PreProjeto",
-        "projectPath": "C:\\Users\\jeiell\\Desktop\\PreProjeto\\PreProjeto\\PreProjeto\\PreProjeto.csproj",
+        "projectPath": "C:\\Users\\jeiell\\Desktop\\Trabalho Final FrenteDeCaixa\\Trabalho FrenteDeCaixa\\PreProjeto\\PreProjeto.csproj",
         "packagesPath": "C:\\Users\\jeiell\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\jeiell\\Desktop\\PreProjeto\\PreProjeto\\PreProjeto\\obj\\",
+        "outputPath": "C:\\Users\\jeiell\\Desktop\\Trabalho Final FrenteDeCaixa\\Trabalho FrenteDeCaixa\\PreProjeto\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\jeiell\\AppData\\Roaming\\NuGet\\NuGet.Config",
