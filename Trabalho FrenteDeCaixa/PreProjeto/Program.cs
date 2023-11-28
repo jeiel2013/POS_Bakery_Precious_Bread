@@ -21,6 +21,8 @@ namespace PadariaPaoPrecioso
         static void Main()
         {
             dadosProduto[] produtos = new dadosProduto[100];
+            int quant = 0;
+            LerDadosDoArquivo(produtos, ref quant);
             int opcao;
             while (true)
             {
@@ -29,7 +31,7 @@ namespace PadariaPaoPrecioso
                 Console.WriteLine("--------------------------------------------");
                 Console.WriteLine("1 - Cadastrar Produto");
                 Console.WriteLine("2 - Listar Produtos");
-                Console.WriteLine("3 - Registrar Venda");
+                Console.WriteLine("3 - Excluir Produto");
                 Console.WriteLine("3 - ");
                 Console.WriteLine("0 - Sair do Sistema");
                 Console.WriteLine("********************************************\n");
@@ -39,19 +41,20 @@ namespace PadariaPaoPrecioso
                 if (opcao == 0)
                 {
                     Console.WriteLine("Saindo...");
+                    // GravarDadosNoArquivo(produtos, quant);
                     break;
                 }
                 Console.Clear();
                 switch (opcao)
                 {
                     case 1:
-                        CadastrarProduto(produtos);
+                        CadastrarProduto(produtos, ref quant);
                         break;
                     case 2:
-                        ListarProdutos(produtos);
+                        ListarProdutos(produtos, quant);
                         break;
                     case 3:
-                        RegistrarVenda(produtos);
+                        ExcluirProduto(produtos, ref quant);
                         break;
                     default:
                         Console.WriteLine("Opção inválida...");
@@ -65,27 +68,29 @@ namespace PadariaPaoPrecioso
                 Console.ReadKey();
                 Console.Clear();*/
             }
+            GravarDadosNoArquivo(produtos, quant);
         }
-        static public void CadastrarProduto(dadosProduto[] produtos) // Função para Cadastrar os produtos
+        static public void CadastrarProduto(dadosProduto[] produtos, ref int q) // Função para Cadastrar os produtos
         {
             Console.WriteLine("********************************************");
             Console.WriteLine("********** CADASTRO DE PRODUTOS ************");
             Console.WriteLine("--------------------------------------------");
-            int indice = ObterIndice(produtos);
+            // int indice;
             Console.Write("Produto: ");
-            produtos[indice].descricaoProduto = Console.ReadLine(); // Nome do Produto
+            produtos[q].descricaoProduto = Console.ReadLine().ToUpper(); ; // Nome do Produto
             Console.Write("Valor Unitário do Produto: ");
-            produtos[indice].valorUnitario = float.Parse(Console.ReadLine()); // Valor Unitário
+            produtos[q].valorUnitario = float.Parse(Console.ReadLine()); // Valor Unitário
             Console.Write("Quantidade inicial do estoque: ");
-            produtos[indice].qtdEstoque = int.Parse(Console.ReadLine()); // Quantidade Estoque
+            produtos[q].qtdEstoque = int.Parse(Console.ReadLine()); // Quantidade Estoque
             Console.Write("Data de Fabricação ex.: (22/11/23): ");
-            produtos[indice].dataFabricacao = Console.ReadLine(); // Data de Fabricação
+            produtos[q].dataFabricacao = Console.ReadLine(); // Data de Fabricação
             Console.Write("Prazo de Validade: ");
-            produtos[indice].prazoValidade = int.Parse(Console.ReadLine()); // Validade
+            produtos[q].prazoValidade = int.Parse(Console.ReadLine()); // Validade
+            q++;
             Console.Clear();
         }
 
-        static public void ListarProdutos(dadosProduto[] produtos) 
+        static public void ListarProdutos(dadosProduto[] produtos, int q) // Função para Listar 
         {
             Console.WriteLine("********************************************");
             Console.WriteLine("********** LISTA DE PRODUTOS ***************");
@@ -114,6 +119,47 @@ namespace PadariaPaoPrecioso
             Console.Clear();
         }
 
+        static public void ExcluirProduto(dadosProduto[] produtos, ref int q) // Função para Excluir produto
+        {
+            Console.WriteLine("********************************************");
+            Console.WriteLine("************* EXCLUIR PRODUTO **************");
+            Console.WriteLine("--------------------------------------------");
+            Console.WriteLine("Qual o produto: ");
+            string desc = Console.ReadLine().ToUpper();
+            int i = busca_bin(produtos, desc , q);
+            if (i != -1)
+            {
+                Console.WriteLine("Produto: " + produtos[i].descricaoProduto);
+                Console.WriteLine("Preço: " + produtos[i].valorUnitario);
+                Console.WriteLine("Estoque: " + produtos[i].qtdEstoque);
+                Console.Write("Deseja excluir? ('S' = Sim, 'N' = Não): ");
+                string resp = Console.ReadLine().ToUpper();
+                if (resp == "S") {
+                    Console.WriteLine("Este produto foi excluído com sucesso!");
+                    Console.WriteLine("Pressione qualquer tecla para voltar ao menu...");
+                    excluir(produtos, ref q, i);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Produto não cadastrado!!!");
+                Console.WriteLine("Pressione qualquer tecla para voltar ao menu...");
+            }
+            Console.ReadKey();
+            Console.Clear();
+        }
+
+        static void excluir(dadosProduto[] produtos, ref int tam, int x) // Função usada na função ExcluirProduto
+        {
+            for (int i = x; i < tam - 1; i++)
+            {
+                produtos[i] = produtos[i + 1];
+            }
+            tam--;
+        }
+
+
+
         static public int ObterIndice(dadosProduto[] produtos)
         {
             int indice;
@@ -136,22 +182,21 @@ namespace PadariaPaoPrecioso
 
         static void LerDadosDoArquivo(dadosProduto[] produtos, ref int n)
         {
-            IFormatter formatter = new BinaryFormatter(); //Permite operação binária no arquivo
+            IFormatter formatter = new BinaryFormatter(); 
             if (File.Exists("Produtos.bin"))
             {
                 Stream rd = new FileStream("Produtos.bin", FileMode.Open, FileAccess.Read);
-                //abre o arquivo somente leitura
                 dadosProduto produto;
-                try ///permite interceptar e tratar as exceções (erros)
+                try 
                 {
                     while (true)
                     {
-                        produto = (dadosProduto)formatter.Deserialize(rd); //Obtem os dados do arquivo no formato prod
+                        produto = (dadosProduto)formatter.Deserialize(rd);
                         produtos[n] = produto;
                         n++;
                     }
                 }
-                catch (Exception err) //Se houver erro, ele é passado para err
+                catch (Exception err)
                 {
                     Console.Write("Dados transferidos para o vetor!");
                 }
@@ -161,29 +206,27 @@ namespace PadariaPaoPrecioso
 
         static void GravarDadosNoArquivo(dadosProduto[] produtos, int n)
         {
-            IFormatter formatter = new BinaryFormatter(); //Permite operação binária
+            IFormatter formatter = new BinaryFormatter();
             Stream wr = new FileStream("Produtos.bin", FileMode.Create, FileAccess.Write);
-            //Cria o arquivo e abre um fluxo
             for (int i = 0; i < n; i++)
             {
-                formatter.Serialize(wr, produtos[i]); //grava os elementos do vetor p serializados
-                                               // no arquivo wr
+                formatter.Serialize(wr, produtos[i]); 
             }
             wr.Close();
         }
 
-        static int busca_bin(dadosProduto[] L, string chave, int tam)
+        static int busca_bin(dadosProduto[] produtos, string chave, int tam)
         {
             int inf = 0, sup = tam, pos = -1, meio;
             while (inf <= sup)
             {
                 meio = (inf + sup) / 2;
-                if (L[meio].descricaoProduto == chave)
+                if (produtos[meio].descricaoProduto == chave)
                 {
                     pos = meio;
                     inf = sup + 1;
                 }
-                else if (L[meio].descricaoProduto.CompareTo(chave) < 0)
+                else if (produtos[meio].descricaoProduto.CompareTo(chave) < 0)
                     inf = meio + 1;
                 else sup = meio - 1;
             }
